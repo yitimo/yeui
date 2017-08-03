@@ -1,4 +1,5 @@
 node_modules
+coverage
 .map.js
 .d.ts
 src/*.js
