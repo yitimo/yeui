@@ -7,7 +7,7 @@ import { Audio } from './model';
 @Component({
     selector: 'ytm-audio',
     template: `
-        <div class="body">
+        <div class="yudio-body">
             <ytm-audio-ctrl style="position: absolute;left: 0;top: 0;"
                 [data]="data" [theme]="themes[2]" [cover]="!!cover" [size]="['1.9rem', '1.9rem']">
             </ytm-audio-ctrl>
@@ -30,7 +30,7 @@ import { Audio } from './model';
             </div>
         </div>`,
     styles: [`
-        .body{
+        .yudio-body{
             margin: 0.2rem;border: 1px solid #ddd;
             position: relative;
         }

@@ -24,13 +24,15 @@ export class YUPService {
             dialog: {},
             alert: {},
             load: {},
-            toast: {}
+            toast: {},
+            custom: {}
         };
         this._disp = {
             dialog: false,
             alert: false,
             load: false,
-            toast: false
+            toast: false,
+            custom: false
         };
     }
     public Dialog(config: DialogConfig) {
@@ -88,7 +90,10 @@ export class YUPService {
         if (typeof dom !== 'string') {
             dom = '';
         }
-        this._config.custom = this.sanitized.bypassSecurityTrustHtml(dom || '');
+        this._config.custom.content = this.sanitized.bypassSecurityTrustHtml(dom || '');
+        this._config.custom.no = () => {
+            this._disp.custom = false;
+        };
         this._disp.custom = true;
     }
     public CustomHide() {
@@ -168,7 +173,7 @@ export class YUPService {
 export interface DialogConfig {
     mask?: string;
     ok?: () => Promise<any>;
-    no?: () => Promise<any>;
+    no?: () => {};
     title?: string;
     okStr?: string;
     noStr?: string;

@@ -91,9 +91,10 @@ export class ToastComponent {
 @Component({
     selector: 'yup-custom',
     template: `
-        <div class="yup-custom" *ngIf="disp" [@toast]="disp" [innerHTML]="config || ''"></div>
+        <div class="yup-mask" [@mask]="disp" *ngIf="disp" (click)="config.no()"></div>
+        <div class="yup-custom" *ngIf="disp" [@mask]="disp" [innerHTML]="config?.content || ''" (click)="config.no()"></div>
     `,
-    animations: [toast],
+    animations: [mask],
     encapsulation: ViewEncapsulation.None
 })
 export class CustomComponent {
