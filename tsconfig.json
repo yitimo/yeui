@@ -3,19 +3,19 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
+    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": [ "es2015", "dom" ],
+    "noImplicitAny": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
     "noEmit": true,
     "noEmitHelpers": true,
     "importHelpers": true,
     "strictNullChecks": false,
-    "declaration": true,
-    "lib": [
-      "dom",
-      "es6"
-    ],
     "baseUrl": ".",
     "paths": {
       "@angular/*": ["node_modules/@angular/*"]

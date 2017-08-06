@@ -1,6 +1,6 @@
 {
   "name": "yeui",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "include weui and more under angular",
   "main": "index.ts",
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "npm run tslint \"src/**/*.ts\"",
     "tslint": "tslint",
     "prepublish": "tsc",
-    "dopublish": "npm run prepublish && npm link && npm link @yitimo/audio && npm publish --access public"
+    "dopublish": " npm run prepublish && npm link && npm link yeui && npm publish --access public"
   },
   "repository": {
     "type": "git",

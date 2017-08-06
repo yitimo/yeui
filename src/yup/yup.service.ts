@@ -13,8 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 // tslint:disable:no-empty
 @Injectable()
 export class YUPService {
-    private _config;
-    private _disp;
+    private _config: any;
+    private _disp: any;
     private loading: boolean;
     constructor(
         private sanitized: DomSanitizer
