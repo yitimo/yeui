@@ -1,10 +1,7 @@
-# Node generated files
-node_modules
-npm-debug.log
-# OS generated files
-Thumbs.db
-.DS_Store
 .vscode
-# Ignored files
 *.ts
 !*.d.ts
+test
+config
+node_modules
+npm-debug.log

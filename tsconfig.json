@@ -11,10 +11,6 @@
     "removeComments": true,
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmit": true,
-    "noEmitHelpers": true,
-    "importHelpers": true,
     "strictNullChecks": false,
     "baseUrl": ".",
     "paths": {
@@ -24,6 +20,7 @@
       "node_modules/@types"
     ],
     "types": [
+      "hammerjs",
       "jasmine",
       "node",
       "source-map",
