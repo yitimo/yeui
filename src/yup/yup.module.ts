@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { YUPComponent } from './yup.component';
 import { YUPService } from './yup.service';
-import { DialogComponent, AlertComponent, LoadComponent, ToastComponent, CustomComponent } from './dialog.component';
+// import { DialogComponent, AlertComponent, LoadComponent, ToastComponent, CustomComponent } from './dialog.component';
+import { AlertComponent } from './popups/alert';
+import { DialogComponent } from './popups/dialog';
+import { LoadComponent } from './popups/load';
+import { ToastComponent } from './popups/toast';
+import { CustomComponent } from './popups/custom';
 
 @NgModule({
     imports: [CommonModule],
