@@ -1,6 +1,6 @@
 {
   "name": "yeui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "include weui and more under angular",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "url": "https://github.com/yitimo/yeui/issues"
   },
   "homepage": "https://github.com/yitimo/yeui#readme",
-  "dependencies": {
+  "devDependencies": {
     "@angular/animations": "^4.3.3",
     "@angular/common": "^4.3.3",
     "@angular/compiler": "^4.3.3",
@@ -38,9 +38,7 @@
     "@angular/platform-browser": "^4.3.3",
     "@angular/platform-browser-dynamic": "^4.3.3",
     "rxjs": "^5.4.2",
-    "zone.js": "^0.8.16"
-  },
-  "devDependencies": {
+    "zone.js": "^0.8.16",
     "@angular/forms": "~4.3.3",
     "@angular/http": "~4.3.3",
     "@angular/platform-server": "~4.3.3",
