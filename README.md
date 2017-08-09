@@ -16,7 +16,7 @@ yeui中的弹出式消息组件(yup == yeui.popup)
             import: [YUPModule]
         })
         export class AppModule {}
-2. 在跟组建中添加yup组件（即将改用第二路由方式）
+2. 在根组件中添加yup组件（即将改用第二路由方式）
 
         <yup></yup>
 
