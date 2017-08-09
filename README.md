@@ -8,7 +8,7 @@ include weui and more under angular
 ## 使用
     npm install --save yeui
 ## YUP
-yeui中的弹出式消息组件(yup == yeui + popup)
+yeui中的弹出式消息组件(yup == yeui.popup)
 1. 在跟模块中引入
 
         import { YUPModule } from 'yeui';
@@ -30,10 +30,10 @@ yeui中的弹出式消息组件(yup == yeui + popup)
         }
 
 ## Yudio
-yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
+yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)(yudio == yeui.audio)
 
 ## YIN
-不需要像YUP那样引入一个组件(<yup></yup>)或是引入第二路由，在模块中直接引入YINModule后便可使用的一系列通用组件、指令、管道。
+不需要像YUP那样引入一个组件(<yup></yup>)或是引入第二路由，在模块中直接引入YINModule后便可使用的一系列通用组件、指令、管道。(yin == yeui.inner)
 
 ## 现有问题
 原本发布到npm时选择忽略掉.ts源文件(只发布.d.ts、.js、.js.map)，这会导致AOT编译时找不到模块，暂时将.ts文件一起发布。
