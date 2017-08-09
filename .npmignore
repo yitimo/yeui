@@ -1,7 +1,4 @@
 .vscode
-*.ts
-!*.d.ts
-test
-config
+.awcache
 node_modules
 npm-debug.log
