@@ -1,7 +1,5 @@
-# yeui
+# yeui [![NPM version][npm-image]][npm-url]
 include weui and more under angular
-
-[NPM | v1.1.9](https://www.npmjs.com/package/yeui/)
 
 ## 概况
 个人学习 [weui](https://github.com/Tencent/weui.js) 、 [vux](https://vux.li/#/) 后将weui的风格整合到angular中得到的UI框架，除此之外还整合了自己开发过程中感觉比较通用及常用的UI组件。
