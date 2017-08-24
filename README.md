@@ -38,3 +38,7 @@ yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
 
 ## YIN (yeui.inner)
 不需要像YUP那样引入一个组件 (yup) 或是引入第二路由，在模块中直接引入YINModule后便可使用的一系列通用组件、指令、管道，一般在ShareModule中引入。
+
+
+## Material Plus
+基于Material2的一些能快速使用的能力，目前刚加入的为dialog能力
