@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { DialogConfig } from '../yup.service';
 import { mask, toast } from '../yup.animation';
 
 @Component({

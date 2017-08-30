@@ -35,7 +35,15 @@ export class YUPService {
             custom: false
         };
     }
-    public Dialog(config: DialogConfig) {
+    public Dialog(config: {
+        ok?: () => Promise<any> | any,
+        no?: () => any,
+        mask?: string,
+        msg?: string,
+        title?: string,
+        okStr?: string,
+        noStr?: string
+    }) {
         this._config.dialog.mask = config.mask || 'mask';
         this._config.dialog.msg = config.msg || ' ';
         this._config.dialog.ok = () => {
@@ -61,7 +69,14 @@ export class YUPService {
         this._config.dialog.title = config.title || '消息';
         this._disp.dialog = true;
     }
-    public Alert(config: DialogConfig) {
+    public Alert(config: {
+        mask?: string,
+        msg?: string,
+        ok?: () => Promise<any> | any,
+        no?: () => any,
+        okStr?: string,
+        title?: string
+    }) {
         this._config.alert.mask = config.mask || 'mask';
         this._config.alert.msg = config.msg || ' ';
         this._config.alert.ok = () => {
@@ -99,7 +114,12 @@ export class YUPService {
     public CustomHide() {
         this._disp.custom = false;
     }
-    public Load(config: LoadConfig) {
+    public Load(config: {
+        mask?: string,
+        delay?: number,
+        duration?: number,
+        msg?: string
+    }) {
         this._config.load.msg = config.msg || '加载中';
         this._config.load.mask = config.mask || 'mask';
         this._config.load.delay = config.delay || 0;
@@ -120,7 +140,10 @@ export class YUPService {
         this.loading = false;
         this._disp.load = false;
     }
-    public Toast(config: ToastConfig) {
+    public Toast(config: {
+        msg?: string,
+        delay?: number
+    }) {
         this._config.toast.msg = config.msg || ' ';
         this._config.toast.delay = config.delay || 2000;
         this._disp.toast = true;
@@ -168,25 +191,4 @@ export class YUPService {
             return false;
         }
     }
-}
-
-export interface DialogConfig {
-    mask?: string;
-    ok?: () => Promise<any>;
-    no?: () => {};
-    title?: string;
-    okStr?: string;
-    noStr?: string;
-    msg?: string;
-}
-export interface LoadConfig {
-    delay?: number;
-    mask?: string;
-    msg?: string;
-    duration?: string;
-    type?: string;
-}
-export interface ToastConfig {
-    delay?: number;
-    msg?: string;
 }

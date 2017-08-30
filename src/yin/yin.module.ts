@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from './components/button';
+import { ButtonMiniComponent } from './components/button-mini';
 
 @NgModule({
-    declarations: [],
+    declarations: [ ButtonComponent, ButtonMiniComponent ],
     imports: [ CommonModule ],
-    exports: [],
+    exports: [ ButtonComponent, ButtonMiniComponent ],
     providers: [],
 })
 export class YINModule {}

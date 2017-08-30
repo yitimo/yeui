@@ -41,7 +41,7 @@ yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
 
 
 ## Material Plus
-基于Material2的一些能快速使用的能力，目前刚加入的为dialog能力
+基于Material2的一些能快速使用的能力，目前刚加入的为dialog能力，【弃用，将迁移到单独的npm包作为管理端专用ui(用于加强Material2)】
 
 [npm-image]: https://badge.fury.io/js/yeui.svg
 [npm-url]: https://npmjs.org/package/yeui

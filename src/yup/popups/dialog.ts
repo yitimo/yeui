@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { DialogConfig } from '../yup.service';
 import { mask, dialog } from '../yup.animation';
 
 @Component({
@@ -20,7 +19,7 @@ import { mask, dialog } from '../yup.animation';
 })
 export class DialogComponent {
     @Input() public disp: boolean;
-    @Input() public config: DialogConfig;
+    @Input() public config: any;
     @Input() public mask: boolean;
     @Input() public flex: boolean;
 }

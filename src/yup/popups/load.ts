@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { LoadConfig } from '../yup.service';
 import { mask, dialog } from '../yup.animation';
 
 @Component({
@@ -16,7 +15,7 @@ import { mask, dialog } from '../yup.animation';
 })
 export class LoadComponent {
     @Input() public disp: boolean;
-    @Input() public config: LoadConfig;
+    @Input() public config: any;
     @Input() public mask: boolean;
     public icon(type: string) {
         switch (type) {

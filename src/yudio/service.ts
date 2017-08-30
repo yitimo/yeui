@@ -1,17 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Audio, PlayData, PlayOrder } from './model';
 
 @Injectable()
 export class AudioService {
     private _audio: HTMLAudioElement;
-    private playList: Audio[];
-    private playData: PlayData;
+    private playList: Array<{
+        Id?: number, // 标识
+        Title?: string, // 标题
+        Album?: string, // 专辑
+        Artist?: string, // 艺术家
+        Desc?: string, // 描述
+        Duration?: number, // 时长
+        Cover?: string, // 封面
+        Src: string // 播放源
+    }>;
+    private playData: {
+        Playing: boolean,
+        Progress: number, // 当前时长
+        Order: number; // 播放顺序
+        Index: number, // 当前播放的索引
+        Data: number // 加载的数据(时间)
+    };
     private dataInterval: number;
     constructor() {
         this.audioInit();
         this.serviceInit();
     }
-    public Toggle(audio?: Audio): void {
+    public Toggle(audio?: {
+        Id?: number, // 标识
+        Title?: string, // 标题
+        Album?: string, // 专辑
+        Artist?: string, // 艺术家
+        Desc?: string, // 描述
+        Duration?: number, // 时长
+        Cover?: string, // 封面
+        Src: string // 播放源
+    }): void {
         const tryGet = audio ?
             this.playList.findIndex((p) => p.Src === audio.Src) :
             this.playData.Index;
@@ -32,7 +55,16 @@ export class AudioService {
             }
         }
     }
-    public Add(audio: Audio): void {
+    public Add(audio: {
+        Id?: number, // 标识
+        Title?: string, // 标题
+        Album?: string, // 专辑
+        Artist?: string, // 艺术家
+        Desc?: string, // 描述
+        Duration?: number, // 时长
+        Cover?: string, // 封面
+        Src: string // 播放源
+    }): void {
         this.playList.push(audio);
         if (this.playList.length === 1) {
             this.PlayIndex(0);
@@ -50,22 +82,22 @@ export class AudioService {
     }
     public Next(): void {
         switch (this.playData.Order) {
-            case PlayOrder.LINE:
+            case 0:
                 if (this.playData.Index < this.playList.length - 1) {
                     this.playData.Index++;
                     this.PlayIndex(this.playData.Index);
                 }
                 break;
-            case PlayOrder.AROUND:
+            case 3:
                 this.playData.Index = (this.playData.Index + 1) % this.playList.length;
                 this.PlayIndex(this.playData.Index);
                 break;
-            case PlayOrder.RANDOM:
+            case 2:
                 this.playData.Index = (this.playData.Index + 1) % this.playList.length;
                 this.PlayIndex(this.playData.Index);
                 console.log('暂不考虑随机播放将视为列表循环播放');
                 break;
-            case PlayOrder.SINGLE:
+            case 1:
                 this._audio.currentTime = 0;
                 break;
             default:
@@ -78,26 +110,26 @@ export class AudioService {
     }
     public Prev(): void {
         switch (this.playData.Order) {
-            case PlayOrder.LINE:
+            case 0:
                 if (this.playData.Index > 0) {
                     this.playData.Index--;
                     this.PlayIndex(this.playData.Index);
                 }
                 break;
-            case PlayOrder.AROUND:
+            case 3:
                 this.playData.Index = (this.playData.Index - 1) < 0 ?
                     (this.playList.length - 1) :
                     (this.playData.Index - 1);
                 this.PlayIndex(this.playData.Index);
                 break;
-            case PlayOrder.RANDOM:
+            case 2:
                 this.playData.Index = (this.playData.Index - 1) < 0 ?
                     (this.playList.length - 1) :
                     (this.playData.Index - 1);
                 this.PlayIndex(this.playData.Index);
                 console.log('暂不考虑随机播放将视为列表循环播放');
                 break;
-            case PlayOrder.SINGLE:
+            case 1:
                 this._audio.currentTime = 0;
                 break;
             default:
@@ -127,10 +159,25 @@ export class AudioService {
             console.log('nothing to be play');
         }
     }
-    public PlayList(): Audio[] {
+    public PlayList(): Array<{
+        Id?: number, // 标识
+        Title?: string, // 标题
+        Album?: string, // 专辑
+        Artist?: string, // 艺术家
+        Desc?: string, // 描述
+        Duration?: number, // 时长
+        Cover?: string, // 封面
+        Src: string // 播放源
+    }> {
         return this.playList;
     }
-    public PlayData(): PlayData {
+    public PlayData(): {
+        Playing: boolean,
+        Progress: number, // 当前时长
+        Order: number; // 播放顺序
+        Index: number, // 当前播放的索引
+        Data: number // 加载的数据(时间)
+    } {
         return this.playData;
     }
     public CurrentAudio(): any {
@@ -147,7 +194,7 @@ export class AudioService {
             Playing: false,
             Index: -1,
             Progress: -1,
-            Order: PlayOrder.LINE,
+            Order: 0,
             Data: 0
         };
     }
