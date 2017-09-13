@@ -9,7 +9,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
             'warn': color === 'warn',
             'disabled': disabled,
             'loading': loading
-        }">
+        }" [ngStyle]="{margin: margin || 0}">
             <i class="weui-loading" *ngIf="loading"></i>
             <span><ng-content></ng-content></span>
         </a>
@@ -144,6 +144,7 @@ export class ButtonMiniComponent {
     @Input() public loading: boolean;
     @Input() public color: string;
     @Input() public disabled: boolean;
+    @Input() public margin: string;
     constructor() {
         this.loading = false;
         this.color = 'default';
