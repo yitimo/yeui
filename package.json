@@ -1,6 +1,6 @@
 {
   "name": "yeui",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "include weui and more under angular",
   "main": "index.js",
   "scripts": {
