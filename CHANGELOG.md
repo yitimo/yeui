@@ -1,6 +1,6 @@
-## 1.5.0 (2017-09-14)
+## 1.5.1 (2017-09-14)
 ### Fix
-*nothing*
+* update exports classes, remove unused some
 ### Refactoring
 * refact default popups(alert, dialog, toast, loader)
 * seems a little more like material2 dialog creating
