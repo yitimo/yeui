@@ -1,6 +1,4 @@
-import { Injectable, ApplicationRef, ComponentFactoryResolver, ViewContainerRef,
-    ComponentRef, EmbeddedViewRef, Injector, InjectionToken, ReflectiveInjector, ComponentFactory } from '@angular/core';
-import { DialogComponent } from './templates';
+import { ComponentRef, InjectionToken, ReflectiveInjector, ComponentFactory } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 

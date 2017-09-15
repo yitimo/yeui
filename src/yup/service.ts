@@ -1,13 +1,10 @@
-import { Injectable, ApplicationRef, ComponentFactoryResolver, ViewContainerRef,
-    ComponentRef, EmbeddedViewRef, Injector, InjectionToken, ReflectiveInjector, ComponentFactory } from '@angular/core';
+import { Injectable, ApplicationRef, ComponentFactoryResolver,
+    ComponentRef, EmbeddedViewRef } from '@angular/core';
 import { YupRef, ComponentType } from './popup.ref';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import { DialogComponent, AlertComponent, LoadComponent, ToastComponent } from './templates';
 
 @Injectable()
 export class DialogService {
-    private _afterClose: Subject<any>;
     private loadRef: YupRef<LoadComponent>;
     constructor(
         private appRef: ApplicationRef,

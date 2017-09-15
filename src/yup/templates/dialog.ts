@@ -1,19 +1,19 @@
-import { Component, Input, Inject, Injector, ViewContainerRef, ComponentRef, Self, ViewEncapsulation } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { YupRef, YUP_DATA } from '../popup.ref';
 import { mask, dialog } from '../animations';
 
 @Component({
     template: `
-    <div class="yup-mask" [@mask]="disp" (click)="!data?.mask && close(false)"></div>
-    <div class="yup-body" [@dialog]="disp">
-        <div class="yup-body-head">{{data?.title || '消息'}}</div>
-        <div class="yup-body-content">{{data?.msg || ' '}}</div>
-        <div class="yup-body-btns">
-            <div class="btn default" (click)="close(false)">{{data?.no || '取消'}}</div>
-            <div class="btn primary" (click)="close(true)">{{data?.ok || '确认'}}</div>
+        <div class="yup-mask" [@mask]="disp" (click)="!data?.mask && close(false)"></div>
+        <div class="yup-body" [@dialog]="disp">
+            <div class="yup-body-head">{{data?.title || '消息'}}</div>
+            <div class="yup-body-content">{{data?.msg || ' '}}</div>
+            <div class="yup-body-btns">
+                <div class="btn default" (click)="close(false)">{{data?.no || '取消'}}</div>
+                <div class="btn primary" (click)="close(true)">{{data?.ok || '确认'}}</div>
+            </div>
         </div>
-    </div>
-        `,
+    `,
     styles: [`
         .yup-mask{
             background: #000000;
