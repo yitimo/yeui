@@ -1,0 +1,4 @@
+<div class="mask" [@mask]="(background === 'transition' || background === 'loose') ? 'exit' : _state" (click)="close()"></div>
+<div class="body" [@dialog]="_state" (@dialog.start)="_onAnimationStart($event)" (@dialog.done)="_onAnimationDone($event)">
+    <ng-template yupHost></ng-template>
+</div>

@@ -1,0 +1,13 @@
+.body {
+    z-index: 91;
+    width: 80%;max-width: 300px;
+    position: fixed;top: 50%;left: 50%;
+    background-color: #ffffff;
+    text-align: center;border-radius: 3px;
+    overflow: hidden;
+}
+.mask {
+    position: fixed;z-index: 90;
+    top: 0;left: 0;right: 0;bottom: 0;
+    background: #000;
+}

@@ -1,3 +1,9 @@
 export { YupModule } from './module';
-export { DialogService as Yup } from './service';
-export { YupRef, YUP_DATA } from './popup.ref';
+export { YUPService as Yup } from './service';
+export { CONTAINER_DATA, DIALOG_DATA, TOAST_DATA } from './base/common';
+export { DialogComponent } from './dialog/template';
+export { DialogRef } from './dialog/dialog.ref';
+export { ToastComponent } from './toast/template';
+export { ToastRef } from './toast/toast.ref';
+export { LoadComponent } from './load/template';
+export { LoadRef } from './load/load.ref';
