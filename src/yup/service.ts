@@ -90,6 +90,18 @@ export class YUPService {
         const toastRef = this.attachToast(ToastComponent, containerComponent, containerRef, config);
         return toastRef;
     }
+    /**
+     * 对话框专用弹窗 会创建一个WEUI风格的弹窗外壳
+     * @param component WEUI弹窗外壳下的内容
+     * @param config 配置 显示的信息以及是alert还是dialog等
+     */
+    private openDialog<T>(component: ComponentType<T>, config: DialogConfig): DialogRef<T> {
+        const containerRef: ContainerRef = this.container.createContainer();
+        const containerComponent: DialogContainerComponent =
+            this.createContainerComponent(containerRef, DialogContainerComponent, {background: config.background});
+        const dialogRef = this.attachDialog(component, containerComponent, containerRef, config);
+        return dialogRef;
+    }
     // 附加弹窗
     private attachDialog<T>(
         component: ComponentType<T>, // 弹窗组件
@@ -175,17 +187,5 @@ export class YUPService {
         injectionTokens.set(LoadContainerComponent, loadContainer);
         injectionTokens.set(LOAD_DATA, config);
         return new PortalInjector(this.injector, injectionTokens);
-    }
-    /**
-     * 对话框专用弹窗 会创建一个WEUI风格的弹窗外壳
-     * @param component WEUI弹窗外壳下的内容
-     * @param config 配置 显示的信息以及是alert还是dialog等
-     */
-    private openDialog<T>(component: ComponentType<T>, config: DialogConfig): DialogRef<T> {
-        const containerRef: ContainerRef = this.container.createContainer();
-        const containerComponent: DialogContainerComponent =
-            this.createContainerComponent(containerRef, DialogContainerComponent, {background: config.background});
-        const dialogRef = this.attachDialog(component, containerComponent, containerRef, config);
-        return dialogRef;
     }
 }
