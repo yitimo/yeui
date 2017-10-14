@@ -73,7 +73,7 @@ import { DialogRef } from './dialog.ref';
 })
 export class DialogComponent {
     constructor(
-        @Inject(DIALOG_DATA) public data: DialogConfig,
+        @Inject(DIALOG_DATA) public data: any,
         private dialog: DialogRef<DialogComponent>
     ) {}
     public close(ok?: boolean) {

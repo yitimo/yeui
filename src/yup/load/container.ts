@@ -1,61 +1,18 @@
 import {
-    Injectable,
-    ComponentFactoryResolver,
-    ApplicationRef,
-    Injector,
-    Inject,
-    Component,
-    ViewContainerRef,
-    ViewChild,
-    EventEmitter,
-    ChangeDetectorRef,
-    ChangeDetectionStrategy
+    ComponentFactoryResolver, Injector, Component, ViewContainerRef, ViewChild,
+    EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, Inject, ComponentRef
 } from '@angular/core';
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
 import { ComponentType, CONTAINER_DATA } from '../base/common';
 import { ContainerHostDirective } from '../base/container-host';
 import { RootRef } from '../base/root.ref';
 import { ContainerRef } from '../base/container.ref';
+import { load, mask } from '../animations';
 
 @Component({
     templateUrl: './container.html',
     styleUrls: [`./container.css`],
     changeDetection: ChangeDetectionStrategy.Default,
-    animations: [
-        trigger('load', [
-            state('enter', style({
-                'opacity': '1',
-                '-webkit-transform': 'translateY(0)',
-                '-moz-transform': 'translateY(0)',
-                '-ms-transform': 'translateY(0)',
-                '-o-transform': 'translateY(0)',
-                'transform': 'translateY(0)'
-            })),
-            state('exit', style({
-                'opacity': '0',
-                '-webkit-transform': 'translateY(50%)',
-                '-moz-transform': 'translateY(50%)',
-                '-ms-transform': 'translateY(50%)',
-                '-o-transform': 'translateY(50%)',
-                'transform': 'translateY(50%)'
-            })),
-            state('void', style({
-                'opacity': '0',
-                '-webkit-transform': 'translateY(50%)',
-                '-moz-transform': 'translateY(50%)',
-                '-ms-transform': 'translateY(50%)',
-                '-o-transform': 'translateY(50%)',
-                'transform': 'translateY(50%)'
-            })),
-            transition('* => *', animate('0.3s ease-in'))
-        ]),
-        trigger('mask', [
-            state('enter', style({opacity: 0.7})),
-            state('void', style({opacity: 0})),
-            state('exit', style({opacity: 0})),
-            transition('* => *', animate('0.3s linear'))
-        ])
-    ]
+    animations: [load, mask]
 })
 export class LoadContainerComponent {
     public animationStateChange = new EventEmitter<AnimationEvent>();
@@ -67,9 +24,9 @@ export class LoadContainerComponent {
         private viewContainerRef: ViewContainerRef,
         private componentFactoryResolver: ComponentFactoryResolver,
         private changeDetectorRef: ChangeDetectorRef,
-        @Inject(CONTAINER_DATA) public background: string
+        @Inject(CONTAINER_DATA) public data: any
     ) {}
-    public attachComponent<T>(component: ComponentType<T>, injector: Injector) {
+    public attachComponent<T>(component: ComponentType<T>, injector: Injector): ComponentRef<T> {
         return this.host.attachComponent(component, injector);
     }
     public _onAnimationDone(event: AnimationEvent) {
@@ -83,7 +40,6 @@ export class LoadContainerComponent {
     }
         /** Starts the dialog exit animation. */
     public _startExitAnimation(): void {
-        console.log('执行关闭动画');
         this._state = 'exit';
         // Mark the container for check so it can react if the
         // view container is using OnPush change detection.

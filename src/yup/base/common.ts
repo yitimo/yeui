@@ -22,8 +22,16 @@ export class PortalInjector implements Injector {
         return this._parentInjector.get<any>(token, notFoundValue);
     }
 }
+export interface ContainerConfig {
+    background?: 'transition' | 'mask' | 'strict' | 'none' | 'loose'; // 透明点击无效 点击后关闭 点击无效 无遮罩 透明点击后关闭
+}
 export interface Config extends ContainerConfig {
     data?: any;
+}
+export interface CustomConfig extends Config {
+    radius?: string;
+    size?: string[2];
+    scroll?: string[2];
 }
 export interface DialogConfig extends ContainerConfig {
     showCancel?: boolean;
@@ -32,15 +40,12 @@ export interface DialogConfig extends ContainerConfig {
     ok?: string;
     no?: string;
 }
-export interface ContainerConfig {
-    background?: 'transition' | 'mask' | 'strict' | 'none' | 'loose'; // 透明点击无效 点击后关闭 点击无效 无遮罩 透明点击后关闭
-}
-export interface ToastConfig extends ContainerConfig {
+export interface ToastConfig extends Config {
     body?: string;
     delay?: number;
     duration?: number;
 }
-export interface LoadConfig extends ContainerConfig {
+export interface LoadConfig extends Config {
     body?: string;
     delay?: number;
     duration?: number;

@@ -1,5 +1,6 @@
 import { RootRef } from './root.ref';
 import { ComponentType, ContainerConfig } from './common';
+import { ComponentRef } from '@angular/core';
 
 export class ContainerRef {
     constructor(
@@ -13,7 +14,7 @@ export class ContainerRef {
     public createComponent<T>(
         containerComponent: ComponentType<T>,
         containerConfig: ContainerConfig
-    ) {
+    ): ComponentRef<T> {
         return this.rootRef.attach(containerComponent, containerConfig);
     }
     /**

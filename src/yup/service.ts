@@ -1,7 +1,7 @@
 import { Injectable, ApplicationRef, ComponentFactoryResolver, Injector, InjectionToken,
     ComponentRef, EmbeddedViewRef } from '@angular/core';
 
-import { ComponentType, PortalInjector, Config, DialogConfig, ContainerConfig,
+import { ComponentType, PortalInjector, Config, DialogConfig, ContainerConfig, CustomConfig,
     ToastConfig, DIALOG_DATA, TOAST_DATA, LoadConfig, LOAD_DATA } from './base/common';
 import { RootRef } from './base/root.ref';
 import { Container } from './base/container';
@@ -26,18 +26,6 @@ export class YUPService {
         private injector: Injector
     ) {}
     /**
-     * 对话框专用弹窗 会创建一个WEUI风格的弹窗外壳
-     * @param component WEUI弹窗外壳下的内容
-     * @param config 配置 显示的信息以及是alert还是dialog等
-     */
-    public open<T>(component: ComponentType<T>, config: DialogConfig): DialogRef<T> {
-        const containerRef: ContainerRef = this.container.createContainer();
-        const containerComponent: DialogContainerComponent =
-            this.createContainerComponent(containerRef, DialogContainerComponent, {background: config.background});
-        const dialogRef = this.attachDialog(component, containerComponent, containerRef, config);
-        return dialogRef;
-    }
-    /**
      * 弹出WEUI风格的dialog
      */
     public dialog(config?: DialogConfig) {
@@ -50,7 +38,7 @@ export class YUPService {
             background: config.background || 'mask',
             showCancel: true
         };
-        return this.open(DialogComponent, config);
+        return this.openDialog(DialogComponent, config);
     }
     /**
      * 弹出WEUI风格的alert
@@ -65,7 +53,11 @@ export class YUPService {
             background: config.background || 'mask',
             showCancel: false
         };
-        return this.open(DialogComponent, config);
+        return this.openDialog(DialogComponent, config);
+    }
+    public custom<T>(component: ComponentType<T>, config?: CustomConfig): any {
+        console.log('自定义弹窗能力开发中..');
+        return {};
     }
     /**
      * 加载动画和吐司使用专门的容器 且不需要自定义内容(以后还是考虑加上自定义)
@@ -159,7 +151,7 @@ export class YUPService {
         const injectionTokens = new WeakMap();
         injectionTokens.set(DialogRef, popupRef);
         injectionTokens.set(DialogContainerComponent, dialogContainer);
-        injectionTokens.set(DIALOG_DATA, config || {});
+        injectionTokens.set(DIALOG_DATA, config);
         return new PortalInjector(this.injector, injectionTokens);
     }
     private createToastInjector<T>(
@@ -170,7 +162,7 @@ export class YUPService {
         const injectionTokens = new WeakMap();
         injectionTokens.set(ToastRef, popupRef);
         injectionTokens.set(ToastContainerComponent, toastContainer);
-        injectionTokens.set(TOAST_DATA, config || {});
+        injectionTokens.set(TOAST_DATA, config);
         return new PortalInjector(this.injector, injectionTokens);
     }
     private createLoadInjector<T>(
@@ -181,7 +173,19 @@ export class YUPService {
         const injectionTokens = new WeakMap();
         injectionTokens.set(LoadRef, popupRef);
         injectionTokens.set(LoadContainerComponent, loadContainer);
-        injectionTokens.set(LOAD_DATA, config || {});
+        injectionTokens.set(LOAD_DATA, config);
         return new PortalInjector(this.injector, injectionTokens);
+    }
+    /**
+     * 对话框专用弹窗 会创建一个WEUI风格的弹窗外壳
+     * @param component WEUI弹窗外壳下的内容
+     * @param config 配置 显示的信息以及是alert还是dialog等
+     */
+    private openDialog<T>(component: ComponentType<T>, config: DialogConfig): DialogRef<T> {
+        const containerRef: ContainerRef = this.container.createContainer();
+        const containerComponent: DialogContainerComponent =
+            this.createContainerComponent(containerRef, DialogContainerComponent, {background: config.background});
+        const dialogRef = this.attachDialog(component, containerComponent, containerRef, config);
+        return dialogRef;
     }
 }

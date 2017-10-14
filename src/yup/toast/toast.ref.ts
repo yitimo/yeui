@@ -16,12 +16,11 @@ export class ToastRef<T> {
     constructor(
         private containerRef: ContainerRef,
         private containerComponent: ToastContainerComponent,
-        private readonly id: string = `yup-dialog-${uniqueId++}`
+        private readonly id: string = `yup-toast-${uniqueId++}`
     ) {
         Observable.from(containerComponent.animationStateChange)
         .filter((event: AnimationEvent) => event.phaseName === 'done' && event.toState === 'exit')
         .subscribe(() => {
-            console.log('关闭动画完成');
             this.containerRef.removeComponent();
             this.afterClosed.next(this.result);
             this.afterClosed.complete();
@@ -35,7 +34,6 @@ export class ToastRef<T> {
         Observable.from(this.containerComponent.animationStateChange)
             .filter((event: AnimationEvent) => event.phaseName === 'start')
             .subscribe();
-        console.log('启动关闭');
         this.containerComponent._startExitAnimation();
     }
     public afterClose() {

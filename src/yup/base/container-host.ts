@@ -1,4 +1,4 @@
-import { Directive, Injector, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { Directive, Injector, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { ComponentType } from './common';
 
 @Directive({
@@ -10,7 +10,7 @@ export class ContainerHostDirective {
         private viewContainerRef: ViewContainerRef,
         private componentFactoryResolver: ComponentFactoryResolver
     ) {}
-    public attachComponent<T>(component: ComponentType<T>, injector: Injector) {
+    public attachComponent<T>(component: ComponentType<T>, injector: Injector): ComponentRef<T> {
         // If the portal specifies an origin, use that as the logical location of the component
         // in the application tree. Otherwise use the location of this PortalHost.
         // 如果入口已经有宿主则使用那个宿主

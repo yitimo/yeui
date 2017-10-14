@@ -30,7 +30,7 @@ export class RootRef {
         let componentRef: ComponentRef<T>;
         // 这一步要把遮罩的配置作为服务注入容器组件
         const injectionTokens = new WeakMap();
-        injectionTokens.set(CONTAINER_DATA, containerConfig.background || {});
+        injectionTokens.set(CONTAINER_DATA, containerConfig || {});
 
         componentRef = componentFactory.create(new PortalInjector(this.injector, injectionTokens));
         this.appRef.attachView(componentRef.hostView);
@@ -50,7 +50,6 @@ export class RootRef {
         if (this.disposeFn) {
             this.disposeFn();
             this.disposeFn = null;
-            console.log('销毁了容器');
         }
         this.isDisposed = true;
     }

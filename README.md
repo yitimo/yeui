@@ -6,7 +6,7 @@ include weui and more under angular
 ## 使用
     npm install --save yeui
 ## YUP (yeui.popup)
-yeui中的弹出式消息组件
+yeui中的弹出式消息组件，使用的是仿照 material2 的实现，动态创建angular组件
 1. 在跟模块中引入
 
         import { YUPModule } from 'yeui';
@@ -14,17 +14,13 @@ yeui中的弹出式消息组件
             import: [YUPModule]
         })
         export class AppModule {}
-2. 在根组件中添加yup组件
+2. 页面中引入Yup
 
-        <yup></yup>
-
-3. 页面中引入YUPService
-
-        import { YUPService } from 'yeui';
+        import { Yup } from 'yeui';
         constructor(
-            private yup: YUPService
+            private yup: Yup
         ) {
-            yup.Alert({msg: 'hello yeui!'});
+            yup.alert({body: 'hello yeui!'});
         }
 
 ## Yudio (yeui.audio)

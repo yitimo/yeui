@@ -39,7 +39,7 @@ export class AudioService {
             this.playList.findIndex((p) => p.Src === audio.Src) :
             this.playData.Index;
         if (tryGet < 0) {
-            this.playList.push(audio);
+            this.playList.push(audio!);
             this.PlayIndex(this.playList.length);
         } else {
             if (tryGet === this.playData.Index) {
@@ -221,7 +221,7 @@ export class AudioService {
             window.clearInterval(this.dataInterval);
             this.playData.Playing = false;
             this.playData.Progress = this.playData.Data =
-            this.playList[this.playData.Index].Duration;
+            this.playList[this.playData.Index].Duration || 0;
         };
         this._audio.onabort = () => {
             window.clearInterval(this.dataInterval);

@@ -1,6 +1,6 @@
 export { YupModule } from './module';
 export { YUPService as Yup } from './service';
-export { CONTAINER_DATA, DIALOG_DATA, TOAST_DATA } from './base/common';
+export { CONTAINER_DATA, DIALOG_DATA, TOAST_DATA, LOAD_DATA, Config, ContainerConfig, DialogConfig, LoadConfig, ToastConfig } from './base/common';
 export { DialogComponent } from './dialog/template';
 export { DialogRef } from './dialog/dialog.ref';
 export { ToastComponent } from './toast/template';

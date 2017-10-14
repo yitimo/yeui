@@ -13,12 +13,19 @@ import { LoadContainerComponent } from './load/container';
 import { LoadComponent } from './load/template';
 
 @NgModule({
-    declarations: [DialogComponent, DialogContainerComponent, ContainerHostDirective,
-        ToastContainerComponent, ToastComponent, LoadContainerComponent, LoadComponent],
+    declarations: [
+        ContainerHostDirective,
+        DialogComponent, DialogContainerComponent,
+        ToastContainerComponent, ToastComponent,
+        LoadContainerComponent, LoadComponent
+    ],
     imports: [ BrowserAnimationsModule, CommonModule ],
     exports: [],
     providers: [YUPService, Container],
-    entryComponents: [DialogComponent, DialogContainerComponent, ToastContainerComponent, ToastComponent,
-        LoadContainerComponent, LoadComponent]
+    entryComponents: [
+        DialogComponent, DialogContainerComponent,
+        ToastContainerComponent, ToastComponent,
+        LoadContainerComponent, LoadComponent
+    ]
 })
 export class YupModule {}
