@@ -1,5 +1,4 @@
 node_modules
-npm-debug.log
 coverage
 *.js.map
 *.d.ts
@@ -8,3 +7,4 @@ index.js
 test
 .awcache
 config
+yarn-error.log

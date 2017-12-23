@@ -3,3 +3,4 @@ export { YupModule, Yup, DialogRef, DIALOG_DATA, CONTAINER_DATA, DialogComponent
 LoadComponent, LoadRef } from './src/yup';
 export { AudioModule } from './src/yudio/module';
 export { AudioService } from './src/yudio/service';
+export { Audio, PLayData } from './src/yudio/model';
