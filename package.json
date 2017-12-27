@@ -1,6 +1,6 @@
 {
   "name": "yeui",
-  "version": "1.6.1",
+  "version": "1.6.3",
   "description": "include weui and more under angular",
   "main": "index.js",
   "scripts": {
@@ -26,22 +26,23 @@
   },
   "homepage": "https://github.com/yitimo/yeui#readme",
   "peerDependencies": {
-    "@angular/core": ">=4.0.0",
     "@angular/animations": ">=4.0.0",
     "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0",
+    "@angular/forms": ">=4.0.0",
     "@angular/platform-browser": ">=4.0.0",
-    "@angular/forms": ">=4.0.0"
+    "rxjs": "^5.5.2",
+    "zone.js": "~0.8.18"
   },
   "devDependencies": {
-    "@angular/animations": "^5.0.1",
-    "@angular/common": "^5.0.1",
-    "@angular/compiler": "^5.0.1",
-    "@angular/core": "^5.0.1",
-    "@angular/forms": "^5.0.1",
-    "@angular/http": "^5.0.1",
-    "@angular/platform-browser": "^5.0.1",
-    "@angular/router": "^5.0.1",
-    "@types/core-js": "^0.9.41",
+    "@angular/animations": "^5.1.0",
+    "@angular/common": "^5.1.0",
+    "@angular/compiler": "^5.1.0",
+    "@angular/core": "^5.1.0",
+    "@angular/forms": "^5.1.0",
+    "@angular/http": "^5.1.0",
+    "@angular/platform-browser": "^5.1.0",
+    "@angular/router": "^5.1.0",
     "codelyzer": "~2.1.1",
     "rxjs": "^5.5.2",
     "tslint": "~4.5.1",
