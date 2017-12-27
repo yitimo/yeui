@@ -1,6 +1,7 @@
 import {
     ComponentFactoryResolver, Injector, Component, ViewContainerRef, ViewChild,
-    EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, Inject, ComponentRef
+    EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, Inject, ComponentRef,
+    ViewEncapsulation
 } from '@angular/core';
 import { ComponentType, CONTAINER_DATA } from '../base/common';
 import { ContainerHostDirective } from '../base/container-host';
@@ -10,8 +11,28 @@ import { dialog, mask } from '../animations';
 
 @Component({
     selector: 'yup-container',
-    templateUrl: './container.html',
-    styleUrls: ['./container.css'],
+    template: `
+        <div class="mask" [@mask]="(data.background === 'transition' || data.background === 'loose') ? 'exit' : _state" (click)="close()"></div>
+        <div class="body" [@dialog]="_state" (@dialog.start)="_onAnimationStart($event)" (@dialog.done)="_onAnimationDone($event)">
+            <ng-template yupHost></ng-template>
+        </div>
+    `,
+    styles: [`
+        .body {
+            z-index: 91;
+            width: 80%;max-width: 300px;
+            position: fixed;top: 50%;left: 50%;
+            background-color: #ffffff;
+            text-align: center;border-radius: 3px;
+            overflow: hidden;
+        }
+        .mask {
+            position: fixed;z-index: 90;
+            top: 0;left: 0;right: 0;bottom: 0;
+            background: #000;
+        }
+    `],
+    encapsulation: ViewEncapsulation.Emulated,
     changeDetection: ChangeDetectionStrategy.Default,
     animations: [dialog, mask]
 })

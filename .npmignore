@@ -2,3 +2,8 @@
 .awcache
 node_modules
 yarn-error.log
+tsconfig.json
+tslint.json
+.gitignore
+*.ts
+!*.d.ts

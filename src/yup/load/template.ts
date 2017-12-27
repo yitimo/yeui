@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { LOAD_DATA, LoadConfig } from '../base/common';
 import { LoadRef } from './load.ref';
 // tslint:disable:max-line-length
@@ -69,7 +69,8 @@ import { LoadRef } from './load.ref';
                         transform: rotate3d(0, 0, 1, 360deg);
             }
         }
-    `]
+    `],
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class LoadComponent {
     constructor(

@@ -1,6 +1,19 @@
+## 1.6.3 (2017-12-27)
+### Fix
+* Rightly destroy left dom when closed popups, only left one top level ``<div>`` container
+* Add Native encapsulation to dialog component to avoid css conversion
+### Refactoring
+* Remove inner popup templates's html/css files (use inline-component instead)
+* The package itself changes to use ``yarn`` from now
+* Not publish ``.ts`` files any more, just ``.d.ts`` files correctly
+
+<hr />
+
 ## 1.6.1 （2017-10-14）
 ### Fix
 * dialog body display fixed
+
+<hr />
 
 ## 1.6.0 （2017-10-14）
 ### Fix

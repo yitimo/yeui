@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { TOAST_DATA, ToastConfig } from '../base/common';
 import { ToastRef } from './toast.ref';
 
@@ -6,7 +6,8 @@ import { ToastRef } from './toast.ref';
     template: `{{config?.body}}`,
     styles: [`
         .yup-toast{}
-    `]
+    `],
+    encapsulation: ViewEncapsulation.Native
 })
 export class ToastComponent {
     constructor(

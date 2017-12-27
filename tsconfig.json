@@ -17,5 +17,9 @@
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": []
+  "exclude": [
+    "node_modules",
+    "*.d.ts",
+    "**/*.d.ts"
+  ]
 }

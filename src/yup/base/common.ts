@@ -23,32 +23,87 @@ export class PortalInjector implements Injector {
     }
 }
 export interface ContainerConfig {
-    background?: 'transition' | 'mask' | 'strict' | 'none' | 'loose'; // 透明点击无效 点击后关闭 点击无效 无遮罩 透明点击后关闭
+    /**
+     * [transition]透明点击无效
+     * [mask]点击后关闭
+     * [strict]点击无效
+     * [none]无遮罩
+     * [loose]透明点击后关闭
+     */
+    background?: 'transition' | 'mask' | 'strict' | 'none' | 'loose';
 }
 export interface Config extends ContainerConfig {
+    /**
+     * 包含的数据 object
+     */
     data?: any;
 }
 export interface CustomConfig extends Config {
+    /**
+     * 圆角
+     */
     radius?: string;
+    /**
+     * 尺寸 [宽, 高]
+     */
     size?: string[2];
+    /**
+     * 是否可滚动
+     */
     scroll?: string[2];
 }
 export interface DialogConfig extends ContainerConfig {
+    /**
+     * 是否显示取消按钮，用于区分alert和dialog
+     */
     showCancel?: boolean;
+    /**
+     * 弹窗标题
+     */
     title?: string;
+    /**
+     * 内容
+     */
     body?: string;
+    /**
+     * 确认文字
+     */
     ok?: string;
+    /**
+     * 取消文字
+     */
     no?: string;
 }
 export interface ToastConfig extends Config {
+    /**
+     * 内容
+     */
     body?: string;
+    /**
+     * 延迟弹出时间
+     */
     delay?: number;
+    /**
+     * 弹出持续时间
+     */
     duration?: number;
 }
 export interface LoadConfig extends Config {
+    /**
+     * 内容
+     */
     body?: string;
+    /**
+     * 延迟出现时间
+     */
     delay?: number;
+    /**
+     * 持续时间
+     */
     duration?: number;
+    /**
+     * [load]加载图标 [success] 成功图标
+     */
     type?: 'load' | 'success';
 }
 export const CONTAINER_DATA = new InjectionToken<any>('CONTAINER_DATA');

@@ -22,8 +22,8 @@ export class ContainerRef {
      */
     public removeComponent(): void {
         this.rootRef.dispose();
-        // if (this.rootDOM.parentNode != null) {
-        //     this.rootDOM.parentNode.removeChild(this.rootDOM);
-        // }
+        if (this.rootDOM.parentNode != null) {
+            this.rootDOM.parentNode.removeChild(this.rootDOM);
+        }
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { DIALOG_DATA, DialogConfig } from '../base/common';
 import { DialogRef } from './dialog.ref';
 
@@ -11,6 +11,7 @@ import { DialogRef } from './dialog.ref';
             <div class="btn primary" (click)="close(true)">{{data?.ok || '确认'}}</div>
         </div>
     `,
+    encapsulation: ViewEncapsulation.Native,
     styles: [`
         .yup-body-head {
             padding: 1.3em 1.6em 0.5em;

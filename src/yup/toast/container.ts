@@ -1,6 +1,6 @@
 import {
     ComponentFactoryResolver, Injector, Component, ViewContainerRef, ViewChild,
-    EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, ComponentRef
+    EventEmitter, ChangeDetectorRef, ChangeDetectionStrategy, ComponentRef, ViewEncapsulation
 } from '@angular/core';
 import { ComponentType, CONTAINER_DATA } from '../base/common';
 import { ContainerHostDirective } from '../base/container-host';
@@ -9,8 +9,22 @@ import { ContainerRef } from '../base/container.ref';
 import { toast } from '../animations';
 
 @Component({
-    templateUrl: './container.html',
-    styleUrls: [`./container.css`],
+    template: `
+        <div class="body" [@toast]="_state" (@toast.start)="_onAnimationStart($event)" (@toast.done)="_onAnimationDone($event)">
+            <ng-template yupHost></ng-template>
+        </div>
+    `,
+    styles: [`
+        .body {
+            position: fixed;
+            max-width: 300px;
+            max-height: 500px;z-index: 99;
+            overflow: hidden;text-align: center;padding: 0.5em 1.3em;
+            font-size: 16px;color: #fff;background: #000;opacity: 0.8;
+            bottom: 10%;left: 50%;border-radius: 3px;
+        }
+    `],
+    encapsulation: ViewEncapsulation.Emulated,
     changeDetection: ChangeDetectionStrategy.Default,
     animations: [toast]
 })
