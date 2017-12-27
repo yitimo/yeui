@@ -4,10 +4,8 @@
   "description": "include weui and more under angular",
   "main": "index.js",
   "scripts": {
-    "lint": "npm run tslint \"src/**/*.ts\"",
-    "tslint": "tslint",
+    "test": "npm run prepublish && yarn unlink && yarn link",
     "prepublish": "tsc",
-    "dopublish": " npm run prepublish && npm link && npm link yeui && npm publish --access public",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Please use Yarn instead of NPM to install dependencies. See: https://yarnpkg.com/lang/en/docs/install/')\""
   },
   "repository": {
