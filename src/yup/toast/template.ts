@@ -4,10 +4,7 @@ import { ToastRef } from './toast.ref';
 
 @Component({
     template: `{{config?.body}}`,
-    styles: [`
-        .yup-toast{}
-    `],
-    encapsulation: ViewEncapsulation.Native
+    encapsulation: ViewEncapsulation.None
 })
 export class ToastComponent {
     constructor(

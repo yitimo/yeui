@@ -10,12 +10,12 @@ import { toast } from '../animations';
 
 @Component({
     template: `
-        <div class="body" [@toast]="_state" (@toast.start)="_onAnimationStart($event)" (@toast.done)="_onAnimationDone($event)">
+        <div class="yeui-toast-body" [@toast]="_state" (@toast.start)="_onAnimationStart($event)" (@toast.done)="_onAnimationDone($event)">
             <ng-template yupHost></ng-template>
         </div>
     `,
     styles: [`
-        .body {
+        .yeui-toast-body {
             position: fixed;
             max-width: 300px;
             max-height: 500px;z-index: 99;
@@ -24,7 +24,7 @@ import { toast } from '../animations';
             bottom: 10%;left: 50%;border-radius: 3px;
         }
     `],
-    encapsulation: ViewEncapsulation.Emulated,
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.Default,
     animations: [toast]
 })

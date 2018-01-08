@@ -4,7 +4,7 @@
         "src/**/*.d.ts": true,
         "src/**/*.js.map": true,
         "index.js": true,
-        "index.d.ts": true,
-        "index.js.map": true
+        "index.js.map": true,
+        "index.d.ts": true
     }
 }
