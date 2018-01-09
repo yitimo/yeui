@@ -9,3 +9,4 @@ tslint.json
 .npmignore
 yarn.lock
 !*.d.ts
+linktest.tgz

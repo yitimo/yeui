@@ -1,3 +1,14 @@
+## 1.6.16 (2018-01-09)
+### Refactoring
+* From now need to call ``config()`` method to regist a theme first
+### Features
+* Add theme ability, currently only support build-in weui theme
+* Add ``weui.min.css`` as global style (only when weui theme configured)
+### Fix
+* Remove yarn-only script
+
+<hr />
+
 ## 1.6.4 (2017-12-27)
 ### Fix
 * Rightly destroy left dom when closed popups, only left one top level ``<div>`` container
@@ -18,8 +29,6 @@
 <hr />
 
 ## 1.6.0 （2017-10-14）
-### Fix
-*nothing*
 ### Refactoring
 * Refactor yup module under material2's code style
 ### Features
@@ -47,8 +56,6 @@
 ### Fix
 * fix peerDependencies, remove package for Material2
 * fix css class name in input/button component to avoid reflection
-### Refactoring
-*nothing*
 ### Features
 * add weui-style button component
 ### Breaking Changes
@@ -57,10 +64,6 @@
 <hr />
 
 ## 1.4.0 (2017-09-04)
-### Fix
-*nothing*
-### Refactoring
-*nothing*
 ### Features
 * add weui-style button component
 ### Breaking Changes

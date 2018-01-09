@@ -2,9 +2,16 @@
 include weui and more under angular
 
 ## 概况
-个人学习 [weui](https://github.com/Tencent/weui.js) 、 [vux](https://vux.li/#/) 后将weui的风格整合到angular中得到的UI框架，除此之外还整合了自己开发过程中感觉比较通用及常用的UI组件。
+I will edit it soon :)
+
 ## 使用
-    npm install --save yeui
+```
+npm install --save yeui
+```
+or
+```
+yarn add yeui
+```
 ## YUP (yeui.popup)
 yeui中的弹出式消息组件，使用的是仿照 material2 的实现，动态创建angular组件
 1. 在跟模块中引入
@@ -34,10 +41,6 @@ yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
 
 ## YIN (yeui.inner)
 不需要像YUP那样引入一个组件 (yup) 或是引入第二路由，在模块中直接引入YINModule后便可使用的一系列通用组件、指令、管道，一般在ShareModule中引入。
-
-
-## Material Plus
-基于Material2的一些能快速使用的能力，目前刚加入的为dialog能力，【弃用，将迁移到单独的npm包作为管理端专用ui(用于加强Material2)】
 
 [npm-image]: https://badge.fury.io/js/yeui.svg
 [npm-url]: https://npmjs.org/package/yeui
