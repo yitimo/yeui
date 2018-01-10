@@ -4,3 +4,4 @@ LoadComponent, LoadRef } from './src/yup';
 export { AudioModule } from './src/yudio/module';
 export { AudioService } from './src/yudio/service';
 export { Audio, PLayData } from './src/yudio/model';
+export { yeuiThemeConfig } from './src/themes/theme_config';
