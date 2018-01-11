@@ -42,11 +42,31 @@ yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
 ## YIN (yeui.inner)
 不需要像YUP那样引入一个组件 (yup) 或是引入第二路由，在模块中直接引入YINModule后便可使用的一系列通用组件、指令、管道，一般在ShareModule中引入。
 
+### Input
+```
+<input ye-input type="" />
+```
+
+### Cell
+```
+<div ye-cells>
+    <div cell>
+        <div head>...</div>
+        <div body>...</div>
+        <div foot>...</div>
+    </div>
+</div>
+```
+
+### Button
+```
+<ye-button warn/primary/default>Button</ye-button>
+<ye-button loading>Button</ye-button>
+<ye-button mini>Button</ye-button>
+<ye-button-plain warn/primary/default>Button</ye-button-plain>
+<ye-button-plain loading>Button</ye-button-plain>
+<ye-button-plain mini>Button</ye-button-plain>
+```
+
 [npm-image]: https://badge.fury.io/js/yeui.svg
 [npm-url]: https://npmjs.org/package/yeui
-[travis-image]: https://travis-ci.org/yitimo/yeui.svg?branch=master
-[travis-url]: https://travis-ci.org/yitimo/yeui
-[daviddm-image]: https://david-dm.org/yitimo/yeui.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/yitimo/yeui
-[coveralls-image]: https://coveralls.io/repos/yitimo/yeui/badge.svg
-[coveralls-url]: https://coveralls.io/r/yitimo/yeui

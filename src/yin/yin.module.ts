@@ -1,15 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent, PlainButtonComponent } from './components/button';
-import { InputDirective } from './components/input';
-import { CellsDirective, CellComponent } from './components/cell';
+import { ButtonComponent, PlainButtonComponent } from './button';
+import { InputDirective } from './input';
+import {
+    CellsDirective, CellBdDirective, CellDirective,
+    CellFtDirective, CellHdDirective
+} from './cell';
 
 @NgModule({
-    declarations: [ ButtonComponent, PlainButtonComponent, InputDirective, CellsDirective,
-        CellComponent ],
+    declarations: [
+        ButtonComponent, PlainButtonComponent, InputDirective, CellsDirective,
+        CellsDirective, CellBdDirective, CellDirective,
+        CellFtDirective, CellHdDirective
+    ],
     imports: [ CommonModule ],
-    exports: [ ButtonComponent, PlainButtonComponent, InputDirective, CellsDirective,
-        CellComponent ],
+    exports: [
+        ButtonComponent, PlainButtonComponent, InputDirective, CellsDirective,
+        CellsDirective, CellBdDirective, CellDirective,
+        CellFtDirective, CellHdDirective
+    ],
     providers: []
 })
 export class YINModule {}
