@@ -4,28 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { ButtonComponent, PlainButtonComponent } from './button';
 import { InputDirective } from './input';
 import {
-    CellsDirective, CellBdDirective, CellDirective,
-    CellFtDirective, CellHdDirective
+    CellsDirective, CellDirective,
+    CellBdDirective, CellFtDirective, CellHdDirective
 } from './cell';
-import { CheckBoxComponent } from './checkbox';
-import { RadioComponent } from './radio';
-import { SelectorComponent, OptionComponent } from './selector';
+import { SelectorComponent } from './selector';
+import { OptionComponent } from './check_option';
+import { RadioDirective } from './radio';
+import { CheckBoxDirective } from './checkbox';
 
 @NgModule({
     declarations: [
         ButtonComponent, PlainButtonComponent, InputDirective,
         CellsDirective, CellsDirective, CellBdDirective,
         CellDirective, CellFtDirective, CellHdDirective,
-        CheckBoxComponent, SelectorComponent, OptionComponent,
-        RadioComponent
+        SelectorComponent, OptionComponent, RadioDirective,
+        CheckBoxDirective
     ],
     imports: [ CommonModule, FormsModule ],
     exports: [
         ButtonComponent, PlainButtonComponent, InputDirective,
         CellsDirective, CellsDirective, CellBdDirective,
         CellDirective, CellFtDirective, CellHdDirective,
-        CheckBoxComponent, SelectorComponent, OptionComponent,
-        RadioComponent
+        SelectorComponent, OptionComponent, RadioDirective,
+        CheckBoxDirective
     ],
     providers: []
 })
