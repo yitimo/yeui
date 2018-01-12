@@ -38,11 +38,15 @@ export class CellDirective implements AfterContentInit {
     @HostBinding('class.weui-cell') public cellC: boolean = false;
     @HostBinding('class.weui-cell_warn') public warnC: boolean = false;
     @HostBinding('class.weui-cell_vcode') public vcodeC: boolean = false;
+    @HostBinding('class.weui-cell_access') public accessC: boolean = false;
     @Input() public set warn(warn: any) {
         this.warnC = warn !== false;
     };
     @Input() public set vcode(vcode: any) {
         this.vcodeC = vcode !== false;
+    };
+    @Input() public set access(access: any) {
+        this.accessC = access !== false;
     };
     @ContentChildren(CellHdDirective) public headD: QueryList<CellHdDirective>;
     @ContentChildren(CellBdDirective) public bodyD: QueryList<CellBdDirective>;
@@ -67,6 +71,10 @@ export class CellDirective implements AfterContentInit {
 export class CellsDirective implements AfterContentInit {
     @HostBinding('class.weui-cells') public cellsC: boolean = true;
     @ContentChildren(CellDirective) public cellD: QueryList<CellDirective>;
+    @HostBinding('class.weui-cells_checkbox') public checkboxC: boolean = false;
+    @Input() public set checkbox(checkbox: any) {
+        this.checkboxC = checkbox !== false;
+    };
     public ngAfterContentInit() {
         // only when sub directives in ye-cells can the right class be setted
         this.cellD.forEach((c) => {
