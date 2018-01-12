@@ -46,8 +46,12 @@ export class CheckBoxComponent implements ControlValueAccessor {
     @Output() public change: EventEmitter<boolean> = new EventEmitter<boolean>();
     private _checked: boolean = false;
     public forA: string = `ye-checkbox-${++nextUniqueId}`;
-    private _controlValueAccessorChangeFn: (value: any) => void = () => {};
-    private onTouched: () => any = () => {};
+    private _controlValueAccessorChangeFn: (value: any) => void = () => {
+        //
+    }
+    private onTouched: () => any = () => {
+        //
+    }
     constructor(
         private _changeDetectorRef: ChangeDetectorRef
     ) {}
