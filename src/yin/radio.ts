@@ -20,13 +20,11 @@ export const RADIO_CONTROL_VALUE_ACCESSOR: any = {
  * <ye-radio [(ngModel)]="" [checked]="" (change)="">value<ye-radio>
  */
 @Component({
-    selector: 'ye-radio',
+    selector: 'label[ye-radio]',
     template: `
-        <label [attr.for]="forA" class="weui-cell weui-check__label">
         <div class="weui-cell__bd"><p style="margin: 0;"><ng-content></ng-content></p></div>
         <div class="weui-cell__ft"><input [id]="forA" type="radio" (change)="ignoreInputChange($event)"
         (click)="ignoreInputClick($event)" [checked]="checked" class="weui-check" /><i class="weui-icon-checked"></i></div>
-        </label>
     `,
     providers: [RADIO_CONTROL_VALUE_ACCESSOR],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,7 +43,9 @@ export class RadioComponent implements ControlValueAccessor {
     }
     @Output() public change: EventEmitter<boolean> = new EventEmitter<boolean>();
     private _checked: boolean = false;
-    public forA: string = `ye-radio-${++nextUniqueId}`;
+    @HostBinding('attr.for') public forA: string = `ye-checkbox-${++nextUniqueId}`;
+    @HostBinding('class.weui-cell') public baseC1: boolean = true;
+    @HostBinding('class.weui-check__label') public baseC2: boolean = true;
     private _controlValueAccessorChangeFn: (value: any) => void = () => {
         //
     }

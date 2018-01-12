@@ -20,13 +20,11 @@ export const CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
  * <ye-checkbox [(ngModel)]="" [checked]="" (change)="">value<ye-checkbox>
  */
 @Component({
-    selector: 'ye-checkbox',
+    selector: 'label[ye-checkbox]',
     template: `
-        <label [attr.for]="forA" class="weui-cell weui-check__label">
         <div class="weui-cell__hd"><input [id]="forA" type="checkbox" (change)="ignoreInputChange($event)"
         (click)="ignoreInputClick($event)" [checked]="checked" class="weui-check" /><i class="weui-icon-checked"></i></div>
         <div class="weui-cell__bd"><p style="margin: 0;"><ng-content></ng-content></p></div>
-        </label>
     `,
     providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,7 +43,9 @@ export class CheckBoxComponent implements ControlValueAccessor {
     }
     @Output() public change: EventEmitter<boolean> = new EventEmitter<boolean>();
     private _checked: boolean = false;
-    public forA: string = `ye-checkbox-${++nextUniqueId}`;
+    @HostBinding('attr.for') public forA: string = `ye-checkbox-${++nextUniqueId}`;
+    @HostBinding('class.weui-cell') public baseC1: boolean = true;
+    @HostBinding('class.weui-check__label') public baseC2: boolean = true;
     private _controlValueAccessorChangeFn: (value: any) => void = () => {
         //
     }
