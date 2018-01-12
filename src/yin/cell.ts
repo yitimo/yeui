@@ -72,9 +72,11 @@ export class CellsDirective implements AfterContentInit {
     @HostBinding('class.weui-cells') public cellsC: boolean = true;
     @ContentChildren(CellDirective) public cellD: QueryList<CellDirective>;
     @HostBinding('class.weui-cells_checkbox') public checkboxC: boolean = false;
-    @Input() public set checkbox(checkbox: any) {
-        this.checkboxC = checkbox !== false;
-    };
+    @HostBinding('class.weui-cells_radio') public radioC: boolean = false;
+    @Input() public set check(value: any) {
+        this.checkboxC = value === 'checkbox';
+        this.radioC = value === 'radio';
+    }
     public ngAfterContentInit() {
         // only when sub directives in ye-cells can the right class be setted
         this.cellD.forEach((c) => {
