@@ -47,6 +47,19 @@ yeui中的音频能力(使用HTML5进行音频的列表管理和播放控制)
 <input ye-input type="" />
 ```
 
+### Checkbox & Radio
+```
+<div ye-checkbox>
+    <label ye-checkbox-option [(ngModel)]="" (change)="">value</label>
+    <label ye-checkbox-option [(ngModel)]="" (change)="">value</label>
+</div>
+
+<div ye-radio [(ngModel)]="" (change)="">
+    <label ye-radio-option [value]="0">none</label>
+    <label ye-radio-option *ngFor="let item of list" [value]="item.id">{{item.value}}</label>
+</div>
+```
+
 ### Cell
 ```
 <div ye-cells>

@@ -1,3 +1,14 @@
+## 1.7.0 (2018-01-14)
+### Refactoring
+* Singlely export a ``yeuiThemeConfig()`` method to config the theme
+### Features
+* Add checkbox component, support ``ngModel`` and ``change($event)``, used by group
+* Add radio component, support ``ngModel`` and ``change($event)``, used by group
+### Fix
+* Fix missing char ``\`` in weui css
+
+<hr />
+
 ## 1.6.16 (2018-01-09)
 ### Refactoring
 * From now need to call ``config()`` method to regist a theme first
